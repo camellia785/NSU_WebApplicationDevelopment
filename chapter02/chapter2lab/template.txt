@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+  Student Name: Yeona Choi
+  File Name: template.html
+  Date: 9/14/2025
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wild Rescues: Template</title>
+</head>
+<body>
+<header>
+<h1>Wild Rescues</h1>
+<h3>Rescue. Rehabilitate. Release.</h3>
+</header>
+
+<nav>
+<p>Home &nbsp; &#9672; &nbsp; About Us &nbsp; &#9672; &nbsp; Partnership &nbsp; &#9672; &nbsp; Gallery &nbsp; &#9672; &nbsp; FAQs &nbsp; &#9672; &nbsp; Contact</p>
+</nav>
+<main>
+</main>
+
+<footer>
+<p>&copy; Copyright 2025. All Rights Reserved.</p>
+<p>contact@wildrescues.net</p>
+</footer>
+</body>
+</html>

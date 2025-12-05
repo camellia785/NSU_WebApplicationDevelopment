@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+  Student Name: Yeona Choi
+  Chapter 10 Lab
+  File Name: template.html
+  Date: 11/29/2025
+-->
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Wild Rescues: Template</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Emblema+One&family=Lora&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ADDED: Step 14 favicon links -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link rel="icon" sizes="192x192" href="images/android-chrome-192.png" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- Mobile Nav -->
+      <nav class="mobile-nav">
+        <div id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="partnership.html">Partnership</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="faqs.html">FAQs</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <a class="nav-icon" onclick="hamburger()">
+          <div id="icon">&#9776;</div>
+        </a>
+      </nav>
+
+      <header>
+        <div class="tab-desk">
+          <a href="index.html">
+            <img
+              src="images/baby-hawk.jpg"
+              alt="rescued baby hawk"
+              class="round"
+            />
+          </a>
+        </div>
+
+        <div class="mobile">
+          <h1>&#128062; Wild Rescues</h1>
+          <h3>Rescue. Rehabilitate. Release.</h3>
+        </div>
+      </header>
+
+      <nav class="tab-desk">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="partnership.html">Partnership</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <main class="grid"></main>
+
+      <footer>
+        <p>&copy; Copyright 2025. All Rights Reserved.</p>
+        <p>
+          <a href="mailto:contact@wildrescues.net">contact@wildrescues.net</a>
+        </p>
+      </footer>
+    </div>
+
+    <!-- script.js 연결 -->
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
+

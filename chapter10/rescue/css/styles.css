@@ -1,0 +1,550 @@
+/* 
+  Student Name: Yeona Choi
+  Chapter 10 Lab
+  File Name: styles.css
+  Date: 11/29/2025
+*/
+
+/* ========================
+   Base Mobile Styles
+======================== */
+
+.mobile, .mobile-tablet {
+  display: block;
+}
+
+/* Step 8: 모바일에서 숨길 요소들 */
+.tab-desk, .desktop, #nav-links {
+  display: none;
+}
+
+/* Step 4: 모바일 네비게이션 스타일 */
+.mobile-nav a {
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  text-decoration: none;
+  padding: 3%;
+  display: block;
+}
+
+.mobile-nav a.nav-icon {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #f6eee4;
+  padding: 2%;
+}
+/* 공통 내비게이션 링크 스타일 */
+nav a {
+  color: #fff;            /* 글자 흰색 */
+  text-decoration: none;  /* 밑줄 제거 */
+  font-weight: bold;      /* 볼드체 (교재처럼) */
+}
+
+nav a:link,
+nav a:visited {
+  color: #fff;            /* 방문 여부 상관없이 흰색 유지 */
+}
+
+
+.nav-icon div {
+  height: 40px;
+  width: 40px;
+  color: #2a1f14;
+}
+
+
+/* Reset */
+body,
+header,
+nav,
+main,
+footer,
+img,
+h1,
+h3,
+ul,
+aside,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Base layout */
+body {
+  background-color: #f6eee4;
+}
+
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* base 모바일 영역 nav 정리 */
+nav {
+  background-color: #2a1f14;
+}
+
+/* Header text */
+.mobile h1,
+.mobile h3 {
+  padding: 2%;
+  text-align: center;
+}
+
+.mobile h1 {
+  font-family: "Emblema One", cursive;
+  margin: 2% 0 0 3%;   /* Step 9 */
+}
+
+.mobile h3 {
+  font-family: "Lora", serif;
+}
+
+/* Main content */
+main {
+  padding: 2%;
+  font-family: "Lora", serif;
+}
+
+main p {
+  font-size: 1.25em;
+}
+
+main h3 {
+  padding-top: 2%;
+}
+
+main ul {
+  list-style-type: square;
+}
+
+/* Links */
+.link {
+  color: #4d3319;
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Emphasis */
+.action {
+  font-size: 1.75em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Contact section */
+#contact {
+  text-align: center;
+}
+
+.tel-link {
+  background-color: #2a1f14;
+  padding: 2%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.tel-link a {
+  color: #f6eee4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* FAQ styles - Step 19 */
+#questions p {
+  cursor: pointer;
+}
+
+#answer {
+  text-align: center;
+  font-weight: bold;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#answer h2 {
+  display: none;
+}
+
+
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.85em;
+  background-color: #2a1f14;
+  color: #f6eee4;
+  padding: 1% 0;
+}
+
+footer a {
+  color: #f3e6d8;
+  text-decoration: none;
+}
+
+/* Info Section */
+#info ul {
+  margin-left: 10%;
+}
+
+aside {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 4px 4px 10px #c5a687;
+}
+
+figure {
+  border: 4px solid #2a1f14;
+  box-shadow: 6px 6px 10px #c5a687;
+  max-width: 400px;
+  margin: 2% auto;
+}
+
+figcaption {
+  padding: 2%;
+  border-top: 4px solid #2a1f14;
+}
+
+/* ========================
+   Style rules for table
+======================== */
+table {
+  border: 1px solid #2a1f14;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+caption {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 1%;
+}
+
+th, td {
+  border: 1px solid #2a1f14;
+  padding: 1%;
+}
+
+th {
+  background-color: #2a1f14;
+  color: #fff;
+  font-size: 1.15em;
+}
+
+tr:nth-child(odd) {
+  background-color: #deccba;
+}
+
+/* ========================
+   Contact Form Styles (Mobile)
+======================== */
+#form {
+  margin: 2% auto;
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #4d3319;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+.btn {
+  background-color: #2a1f14;
+  color: #f6eee4;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1em;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* ========================
+   Media Query for Tablet Viewport
+======================== */
+@media screen and (min-width: 620px), print {
+  /* Tablet: h2가 2열 전체를 차지하도록 */
+  #partner-heading,
+  #contact-heading {
+    grid-column: 1 / span 2;
+  }
+
+  #contact {
+    grid-column: 1 / span 2; /* 2열 전체 차지 */
+  }
+
+  .tab-desk {
+    display: block;
+  }
+
+  /* Step 10: 태블릿 이상에서는 모바일 헤더/모바일 네비 숨김 */
+  .mobile,
+  .mobile-nav {
+    display: none;
+  }
+
+  nav li {
+    border-top: none;
+    display: inline-block;
+  }
+
+  nav li a {
+    font-size: 1.25em;
+    padding: 0.5em 1.5em;
+  }
+
+  nav ul {
+    text-align: center;
+  }
+
+  main {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* GRID: 2 columns tablet */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  aside {
+    grid-column: 1 / span 2;
+  }
+
+  /* 🔷 Contact page 전체 2열 차지 */
+  #contact {
+    grid-column: 1 / span 2;
+  }
+
+  /* 🔷 Contact Form 전체도 2열 차지 */
+  #form {
+    grid-column: 1 / span 2;
+  }
+
+  /* 🔷 제목도 2열 전체 차지 */
+  #contact-heading {
+    grid-column: 1 / span 2;
+    text-align: center;
+  }
+
+  /* Tablet Contact Form */
+  .form-grid {
+    grid-template-columns: 1fr 1fr; /* 2열 */
+    gap: 15px;
+  }
+
+  fieldset {
+    grid-column: auto; /* 각각 1칸씩 */
+  }
+
+  textarea,
+  #submit {
+    grid-column: 1 / span 2; /* 전체 2칸 차지 */
+  }
+}
+
+/* ========================
+   Media Query for Desktop Viewport
+======================== */
+@media screen and (min-width: 1000px), print {
+  /* Desktop: h2가 3열 전체를 차지하도록 */
+  #partner-heading{
+    grid-column: 1 / span 3;
+  }
+
+  #contact-heading {
+    grid-column: 1 / span 3;
+    text-align: center;  /* (Contact 페이지에서 가운데 정렬 필요 시) */
+  }
+  #contact {
+    grid-column: 1 / span 3; /* 3열 전체 차지 */
+    text-align: center;  /* 가운데 정렬도 추가하면 예시화면과 동일 */
+  }
+
+  #contact p {
+    text-align: center;
+  }
+
+
+  /* ✅ 데스크탑 레이아웃 활성화 */
+  /* Desktop: show desktop-only content, hide mobile-tablet */
+  .desktop {
+    display: block;
+  }
+
+  .mobile, .mobile-tablet {
+    display: none;
+  }
+
+  /* ✅ Navigation Desktop 스타일 */
+  nav ul {
+    text-align: center;
+  }
+
+  nav li {
+    display: inline-block;
+  }
+
+  nav li a {
+    font-size: 1.5em;
+    padding: 0.75em 1.5em;
+  }
+
+  nav li a:hover {
+    color: #2a1f14;
+    background-color: #f6eee4;
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  /* ✅ Wrapper 및 Grid 설정 */
+  #wrapper {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px;
+  }
+
+  aside {
+    grid-column: 1 / span 3;
+    font-size: 2em;
+  }
+
+  /* ✅ Partnership Page Table이 전체 그리드 차지하도록 */
+  #partner {
+    grid-column: 1 / span 3; /* 1~3열 전체 차지 */
+  }
+
+  table {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1em;
+  }
+
+  /* ✅ Contact Form Desktop Layout */
+  #form h2 {
+    text-align: center;
+  }
+
+  #form {
+    grid-column: 1 / span 3; /* 메인 grid 3열 전체 차지하도록 */
+  }
+  #form {
+    width: 100%;
+    margin: 2% auto;
+    padding: 2%;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+  /* 첫 번째 fieldset: 2칸 차지 */
+  #form fieldset:first-of-type {
+    grid-column: 1 / span 2;
+  }
+
+  /* 두 번째 fieldset: 오른쪽 1칸 */
+  #form fieldset:last-of-type {
+    grid-column: 3 / span 1;
+  }
+
+  /* textarea: 전체 넓이 사용 */
+  #form textarea {
+    grid-column: 1 / span 3;
+  }
+
+  /* 버튼: 가운데 위치 (1/3 영역의 가운데) */
+  #form #submit {
+    grid-column: 2 / span 1;
+    justify-self: center;
+  }
+}
+
+/* ========================
+   Media Query for Large Desktop Viewports
+======================== */
+@media screen and (min-width: 1921px) {
+  body {
+    background: linear-gradient(#f6eee4, #78593a);
+  }
+
+  #wrapper {
+    width: 1920px;
+    margin: 0 auto;
+  }
+
+  main {
+    background-color: #f6eee4;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  aside {
+    grid-column: 1 / span 4;
+    font-size: 3em;
+  }
+}
+
+/* ========================
+   Media Query for Print
+======================== */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  nav,
+  footer {
+    display: none;
+  }
+}
