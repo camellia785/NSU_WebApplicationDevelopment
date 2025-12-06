@@ -1,0 +1,21 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const navButtons = document.querySelectorAll(".nav-btn");
+  const sections = document.querySelectorAll(".section");
+
+  navButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetSection = button.getAttribute("data-section");
+
+      // Update active button
+      navButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      // Update active section
+      sections.forEach((section) => section.classList.remove("active"));
+      const activeSection = document.getElementById(targetSection);
+      if (activeSection) {
+        activeSection.classList.add("active");
+      }
+    });
+  });
+});
