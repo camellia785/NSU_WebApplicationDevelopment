@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Networking Deep Dive - Networking Fundamentals</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <h1 class="logo">Networking Fundamentals</h1>
+          <nav class="navbar">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="basics.html" class="nav-btn">Basics</a>
+            <a href="deep-dive.html" class="nav-btn active">Deep Dive</a>
+            <a href="practice.html" class="nav-btn">Practice</a>
+            <a href="contact.html" class="nav-btn">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <section class="section">
+          <h2 class="section-title">Networking Deep Dive</h2>
+          <div class="cards-grid">
+            <div class="card">
+              <div class="card-icon">⚡</div>
+              <h3>TCP vs UDP</h3>
+              <p>
+                Two main transport protocols. TCP is reliable but slower; UDP is
+                fast but doesn't guarantee delivery.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🤝</div>
+              <h3>TCP Handshake</h3>
+              <p>
+                Three-way connection establishment process (SYN, SYN-ACK, ACK)
+                that ensures reliable communication between client and server.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🔌</div>
+              <h3>Ports & Sockets</h3>
+              <p>
+                Ports identify specific services on a machine; sockets represent
+                endpoints for network communication and data transfer.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🔄</div>
+              <h3>REST & API</h3>
+              <p>
+                REST architectural style uses HTTP methods for data operations.
+                APIs expose application functionality over networks.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🛡️</div>
+              <h3>HTTPS / SSL/TLS</h3>
+              <p>
+                SSL/TLS protocols encrypt data transmission. HTTPS is the secure
+                version of HTTP, protecting sensitive information in transit.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">🔐</div>
+              <h3>Cookies / Sessions / JWT</h3>
+              <p>
+                Authentication mechanisms. Cookies store client data, sessions
+                track user state, JWT tokens enable stateless authentication.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">⚠️</div>
+              <h3>Security Vulnerabilities</h3>
+              <p>
+                Common threats include SQL injection, XSS, CSRF, DDoS attacks,
+                and man-in-the-middle attacks requiring security best practices.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>© 2025 Yeona Choi - Networking Fundamentals Personal Website</p>
+      </footer>
+    </div>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
