@@ -370,3 +370,46 @@ body {
     font-size: 0.9rem;
   }
 }
+
+/* ============================
+   Hamburger & Responsive Nav
+============================ */
+
+.hamburger {
+  display: none; /* 기본은 숨김 (데스크탑) */
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* nav 기본 레이아웃 (데스크탑) */
+.navbar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* 작은 화면에서: 햄버거 보이고, nav는 토글로 열기 */
+@media (max-width: 768px) {
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    display: none; /* JS로 block/none 토글 */
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .navbar .nav-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}

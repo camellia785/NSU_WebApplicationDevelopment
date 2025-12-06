@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,17 +13,20 @@
       <header class="header">
         <div class="header-content">
           <h1 class="logo">Networking Fundamentals</h1>
-          <nav class="navbar">
-            <button class="nav-btn active" data-section="home">Home</button>
-            <button class="nav-btn" data-section="basics">Basics</button>
-            <button class="nav-btn" data-section="deep-dive">Deep Dive</button>
-            <button class="nav-btn" data-section="practice">Practice</button>
-            <button class="nav-btn" data-section="contact">Contact</button>
+          <!-- ✅ hamburger icon -->
+          <span id="icon" class="hamburger" onclick="hamburger()">☰</span>
+
+          <!-- ✅ add id="nav-links"  -->
+          <nav class="navbar" id="nav-links">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="basics.html" class="nav-btn">Basics</a>
+            <a href="deep-dive.html" class="nav-btn">Deep Dive</a>
+            <a href="practice.html" class="nav-btn">Practice</a>
+            <a href="contact.html" class="nav-btn">Contact</a>
           </nav>
         </div>
       </header>
 
-      <!-- Main Content -->
       <main class="main-content">
         <!-- Home Section -->
         <section id="home" class="section active">
@@ -60,190 +64,6 @@
                 real-world examples to apply networking concepts in your
                 projects.
               </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Basics Section -->
-        <section id="basics" class="section">
-          <h2 class="section-title">Basic Networking Concepts</h2>
-          <div class="cards-grid">
-            <div class="card">
-              <div class="card-icon">🌐</div>
-              <h3>How Internet Works</h3>
-              <p>
-                Global network of interconnected computers sharing information
-                through standardized protocols and infrastructure.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🔒</div>
-              <h3>HTTP/HTTPS</h3>
-              <p>
-                Web communication protocols. HTTPS adds encryption for secure
-                data transmission over the internet.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🏷️</div>
-              <h3>Domain Name</h3>
-              <p>
-                Human-readable web addresses that identify websites on the
-                internet and map to IP addresses.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🖥️</div>
-              <h3>Hosting & Browsers</h3>
-              <p>
-                Server infrastructure stores websites, while browsers are client
-                software that displays web content.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">📡</div>
-              <h3>DNS</h3>
-              <p>
-                Domain Name System converts domain names into IP addresses
-                enabling computers to locate servers on the internet.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Deep Dive Section -->
-        <section id="deep-dive" class="section">
-          <h2 class="section-title">Deep Dive: Advanced Networking</h2>
-          <div class="cards-grid">
-            <div class="card">
-              <div class="card-icon">📊</div>
-              <h3>TCP/UDP Protocols</h3>
-              <p>
-                Core transport layer protocols: TCP for reliable
-                connection-based communication, UDP for fast connectionless
-                transmission.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🔐</div>
-              <h3>SSL/TLS Encryption</h3>
-              <p>
-                Cryptographic protocols securing internet communications through
-                encryption and authentication mechanisms.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">⚙️</div>
-              <h3>Load Balancing</h3>
-              <p>
-                Distributing network traffic across multiple servers to optimize
-                resource usage and ensure high availability.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🌍</div>
-              <h3>CDN and Caching</h3>
-              <p>
-                Content delivery networks cache and distribute content globally
-                for faster load times and improved performance.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🛡️</div>
-              <h3>Network Security</h3>
-              <p>
-                Protecting networks from unauthorized access through firewalls,
-                intrusion detection, and security protocols.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">📶</div>
-              <h3>API Communication</h3>
-              <p>
-                RESTful APIs and GraphQL enable structured communication between
-                client and server applications.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🔄</div>
-              <h3>WebSockets</h3>
-              <p>
-                Enabling real-time bidirectional communication between clients
-                and servers for live updates and instant messaging.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Practice Section -->
-        <section id="practice" class="section">
-          <h2 class="section-title">Practice: Real-World Applications</h2>
-          <div class="cards-grid">
-            <div class="card">
-              <div class="card-icon">💡</div>
-              <h3>Build a Simple Server</h3>
-              <p>
-                Hands-on exercise to create a basic HTTP server using Node.js
-                and understand request-response patterns.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🧪</div>
-              <h3>Network Debugging</h3>
-              <p>
-                Learn to use tools like Wireshark, curl, and Chrome DevTools to
-                analyze network traffic and troubleshoot issues.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🔍</div>
-              <h3>DNS Resolution</h3>
-              <p>
-                Understanding DNS lookup process and implementing DNS queries
-                programmatically in your applications.
-              </p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🚀</div>
-              <h3>Performance Optimization</h3>
-              <p>
-                Techniques for optimizing network performance including
-                compression, caching strategies, and connection pooling.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-          <h2 class="section-title">Get in Touch</h2>
-          <div class="contact-container">
-            <div class="contact-card">
-              <div class="contact-icon">📧</div>
-              <h3>Email</h3>
-              <p>Reach out via email for questions or feedback</p>
-              <a href="mailto:yeona.choi@example.com" class="contact-link"
-                >Send Email</a
-              >
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon">💼</div>
-              <h3>LinkedIn</h3>
-              <p>Connect with me on professional network</p>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                class="contact-link"
-                >Visit Profile</a
-              >
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon">🐙</div>
-              <h3>GitHub</h3>
-              <p>Check out my projects and code</p>
-              <a href="https://github.com" target="_blank" class="contact-link"
-                >View Repository</a
-              >
             </div>
           </div>
         </section>

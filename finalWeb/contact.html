@@ -1,3 +1,4 @@
+<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,26 +13,30 @@
       <header class="header">
         <div class="header-content">
           <h1 class="logo">Networking Fundamentals</h1>
-          <nav class="navbar">
+          <!-- ✅ hamburger icon -->
+          <span id="icon" class="hamburger" onclick="hamburger()">☰</span>
+
+          <!-- ✅ add id="nav-links"  -->
+          <nav class="navbar" id="nav-links">
             <a href="index.html" class="nav-btn">Home</a>
             <a href="basics.html" class="nav-btn">Basics</a>
             <a href="deep-dive.html" class="nav-btn">Deep Dive</a>
             <a href="practice.html" class="nav-btn">Practice</a>
-            <a href="contact.html" class="nav-btn active">Contact</a>
+            <a href="contact.html" class="nav-btn">Contact</a>
           </nav>
         </div>
       </header>
 
       <!-- Main Content -->
       <main class="main-content">
-        <section class="section">
+        <section class="section active">
           <h2 class="section-title">Contact</h2>
           <div class="contact-container">
             <div class="contact-card">
               <div class="contact-icon">📧</div>
               <h3>Email</h3>
               <p>Get in touch via email</p>
-              <a href="mailto:yeona@example.com" class="contact-link"
+              <a href="mailto:choiyuna759@gmail.com" class="contact-link"
                 >Send Email</a
               >
             </div>
@@ -39,7 +44,10 @@
               <div class="contact-icon">💼</div>
               <h3>GitHub</h3>
               <p>View my projects and contributions</p>
-              <a href="https://github.com" target="_blank" class="contact-link"
+              <a
+                href="https://github.com/camellia785"
+                target="_blank"
+                class="contact-link"
                 >Visit GitHub</a
               >
             </div>
@@ -48,7 +56,7 @@
               <h3>LinkedIn</h3>
               <p>Connect with me professionally</p>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/yeona785/"
                 target="_blank"
                 class="contact-link"
                 >Visit LinkedIn</a

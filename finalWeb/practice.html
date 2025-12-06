@@ -1,3 +1,4 @@
+<!-- practice.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,11 +13,16 @@
       <header class="header">
         <div class="header-content">
           <h1 class="logo">Networking Fundamentals</h1>
-          <nav class="navbar">
+
+          <!-- ✅ hamburger icon -->
+          <span id="icon" class="hamburger" onclick="hamburger()">☰</span>
+
+          <!-- ✅ add id="nav-links"  -->
+          <nav class="navbar" id="nav-links">
             <a href="index.html" class="nav-btn">Home</a>
             <a href="basics.html" class="nav-btn">Basics</a>
             <a href="deep-dive.html" class="nav-btn">Deep Dive</a>
-            <a href="practice.html" class="nav-btn active">Practice</a>
+            <a href="practice.html" class="nav-btn">Practice</a>
             <a href="contact.html" class="nav-btn">Contact</a>
           </nav>
         </div>
@@ -24,7 +30,7 @@
 
       <!-- Main Content -->
       <main class="main-content">
-        <section class="section">
+        <section class="section active">
           <h2 class="section-title">Backend in Practice</h2>
           <div class="cards-grid">
             <div class="card">
