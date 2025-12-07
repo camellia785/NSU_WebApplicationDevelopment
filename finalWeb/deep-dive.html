@@ -32,7 +32,7 @@
         <section class="section active">
           <h2 class="section-title">Networking Deep Dive</h2>
           <div class="cards-grid">
-            <div class="card">
+            <div class="card" data-modal-target="modal-deep-tcp-udp">
               <div class="card-icon">⚡</div>
               <h3>TCP vs UDP</h3>
               <p>
@@ -40,7 +40,7 @@
                 fast but doesn't guarantee delivery.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-deep-handshake">
               <div class="card-icon">🤝</div>
               <h3>TCP Handshake</h3>
               <p>
@@ -48,7 +48,7 @@
                 that ensures reliable communication between client and server.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-deep-ports-sockets">
               <div class="card-icon">🔌</div>
               <h3>Ports & Sockets</h3>
               <p>
@@ -56,7 +56,7 @@
                 endpoints for network communication and data transfer.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-deep-rest-api">
               <div class="card-icon">🔄</div>
               <h3>REST & API</h3>
               <p>
@@ -64,7 +64,7 @@
                 APIs expose application functionality over networks.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-deep-https">
               <div class="card-icon">🛡️</div>
               <h3>HTTPS / SSL/TLS</h3>
               <p>
@@ -72,7 +72,7 @@
                 version of HTTP, protecting sensitive information in transit.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-deep-auth">
               <div class="card-icon">🔐</div>
               <h3>Cookies / Sessions / JWT</h3>
               <p>
@@ -80,7 +80,7 @@
                 track user state, JWT tokens enable stateless authentication.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-deep-security">
               <div class="card-icon">⚠️</div>
               <h3>Security Vulnerabilities</h3>
               <p>
@@ -90,6 +90,775 @@
             </div>
           </div>
         </section>
+        <!-- Modals for Deep Dive page -->
+
+        <!-- 1️⃣ TCP vs UDP -->
+        <div id="modal-deep-tcp-udp" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>TCP vs UDP</h2>
+
+            <img
+              src="https://www.colocationamerica.com/wp-content/uploads/2018/12/udp-tcp.jpg"
+              alt="TCP vs UDP comparison"
+              class="modal-image"
+            />
+            <img
+              src="https://www.wowza.com/wp-content/uploads/Graphic-UDP-Vs-TCP-Diagram_1150x685-700x417.png"
+              alt="UDP vs TCP diagram"
+              class="modal-image"
+            />
+
+            <p>
+              TCP and UDP are the two main transport layer protocols used on the
+              internet. They sit on top of IP and decide
+              <strong>how</strong> data is delivered between applications.
+            </p>
+
+            <h3>1. TCP – Reliable, Connection-Oriented</h3>
+            <p>
+              <strong>TCP (Transmission Control Protocol)</strong> provides:
+            </p>
+            <ul>
+              <li>
+                ✅ <strong>Reliability</strong> – lost packets are detected and
+                retransmitted
+              </li>
+              <li>
+                ✅ <strong>Ordered delivery</strong> – packets are reassembled
+                in the correct order
+              </li>
+              <li>
+                ✅ <strong>Error checking</strong> – via sequence numbers and
+                checksums
+              </li>
+              <li>
+                ✅ <strong>Flow control</strong> – avoids overwhelming the
+                receiver
+              </li>
+              <li>
+                ✅ <strong>Congestion control</strong> – adapts to network
+                congestion
+              </li>
+            </ul>
+            <p>
+              Because of these features, TCP is slightly slower, but it ensures
+              that data arrives correctly and completely.
+            </p>
+            <p><strong>Typical use cases:</strong></p>
+            <ul>
+              <li>Web pages (HTTP/HTTPS)</li>
+              <li>REST APIs</li>
+              <li>Database connections</li>
+              <li>File transfer (FTP, SFTP)</li>
+              <li>Email (SMTP, IMAP, POP3)</li>
+            </ul>
+
+            <h3>2. UDP – Fast, Connectionless</h3>
+            <p><strong>UDP (User Datagram Protocol)</strong> provides:</p>
+            <ul>
+              <li>
+                🚀 <strong>No connection setup</strong> – sends packets
+                immediately
+              </li>
+              <li>
+                ⚡ <strong>Low overhead</strong> – minimal header, no
+                retransmission
+              </li>
+              <li>
+                ❌ <strong>No guarantee of delivery</strong> – packets may be
+                lost
+              </li>
+              <li>
+                ❌ <strong>No order guarantee</strong> – packets may arrive out
+                of order
+              </li>
+              <li>❌ <strong>No built-in congestion control</strong></li>
+            </ul>
+            <p>
+              UDP is useful when
+              <strong>speed matters more than perfect reliability</strong>.
+            </p>
+            <p><strong>Typical use cases:</strong></p>
+            <ul>
+              <li>Live video / audio streaming</li>
+              <li>Online gaming</li>
+              <li>VoIP calls</li>
+              <li>DNS queries</li>
+              <li>Real-time sensor data</li>
+            </ul>
+
+            <h3>3. Which One Should I Use as a Backend Developer?</h3>
+            <ul>
+              <li>
+                If <strong>correctness and integrity</strong> of data are
+                critical → choose <strong>TCP</strong> (APIs, payments, user
+                data).
+              </li>
+              <li>
+                If <strong>real-time performance</strong> matters more than
+                occasional packet loss → choose <strong>UDP</strong> (streaming,
+                real-time dashboards, IoT telemetry).
+              </li>
+            </ul>
+            <p>
+              In most typical backend web services, you’ll work with
+              <strong>TCP-based protocols</strong> (HTTP/HTTPS), but
+              understanding UDP helps with DNS, QUIC, and custom real-time
+              systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2️⃣ TCP Handshake -->
+        <div id="modal-deep-handshake" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>TCP Handshake</h2>
+
+            <img
+              src="https://afteracademy.com/images/what-is-a-tcp-3-way-handshake-process-three-way-handshaking-establishing-connection-6a724e77ba96e241.jpg"
+              alt="TCP 3-way handshake diagram"
+              class="modal-image"
+            />
+
+            <p>
+              TCP uses a <strong>3-way handshake</strong> to establish a
+              reliable connection before any real data is sent. This ensures
+              both sides agree to communicate and can track each other’s
+              sequence numbers.
+            </p>
+
+            <h3>1. Three-Way Handshake (Connection Establishment)</h3>
+            <ol>
+              <li>
+                <strong>SYN – Client → Server</strong><br />
+                Client sends a packet with the SYN (synchronize) flag set.<br />
+                “I want to start a TCP connection. Here is my initial sequence
+                number.”
+              </li>
+              <li>
+                <strong>SYN-ACK – Server → Client</strong><br />
+                Server responds with SYN and ACK flags.<br />
+                “I acknowledge your request and here is
+                <strong>my</strong> initial sequence number.”
+              </li>
+              <li>
+                <strong>ACK – Client → Server</strong><br />
+                Client sends a final ACK packet.<br />
+                “Got it. Let’s start sending data.”
+              </li>
+            </ol>
+            <p>After this exchange, both sides know:</p>
+            <ul>
+              <li>That the other side is reachable</li>
+              <li>Initial sequence numbers for tracking packets</li>
+              <li>That a reliable connection has been established</li>
+            </ul>
+
+            <h3>2. Connection Termination (Graceful Close)</h3>
+            <p>
+              Closing a TCP connection usually involves a
+              <strong>four-step FIN sequence</strong>:
+            </p>
+            <ol>
+              <li>One side sends <strong>FIN</strong> (“I’m done sending”).</li>
+              <li>The other side sends <strong>ACK</strong> for that FIN.</li>
+              <li>The second side sends its own <strong>FIN</strong>.</li>
+              <li>The first side sends a final <strong>ACK</strong>.</li>
+            </ol>
+            <p>
+              This orderly shutdown ensures all remaining data is delivered
+              correctly before the connection is closed.
+            </p>
+
+            <h3>3. Why Backend Developers Should Care</h3>
+            <ul>
+              <li>
+                <strong>Latency</strong> – the TCP handshake adds extra round
+                trips before data is sent.
+              </li>
+              <li>
+                <strong>Connection reuse</strong> – keep-alive and connection
+                pooling reduce handshake overhead.
+              </li>
+              <li>
+                <strong>Troubleshooting</strong> – half-open connections,
+                TIME_WAIT, or failed SYNs affect scalability.
+              </li>
+            </ul>
+            <p>
+              When you see logs like “connection refused” or “timeout during
+              handshake,” it often means something went wrong in this process.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3️⃣ Ports & Sockets -->
+        <div id="modal-deep-ports-sockets" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>Ports &amp; Sockets</h2>
+
+            <img
+              src="https://ipwithease.com/wp-content/uploads/2020/06/IP-ADDRESS-AND-PORT-NUMBER.jpg.webp"
+              alt="IP address and port number"
+              class="modal-image"
+            />
+            <img
+              src="https://www.skullbox.net/ports.gif"
+              alt="Port ranges"
+              class="modal-image"
+            />
+
+            <p>
+              Ports and sockets are how the operating system distinguishes
+              <strong>which application</strong> should receive incoming network
+              data. They are critical to how backend services expose themselves
+              to the network.
+            </p>
+
+            <h3>1. Ports – Identifying Services</h3>
+            <p>
+              An <strong>IP address</strong> identifies a host (machine), while
+              a <strong>port number</strong> identifies a specific process or
+              service on that host.
+            </p>
+            <p>Examples:</p>
+            <ul>
+              <li><code>203.0.113.10:80</code> → HTTP server</li>
+              <li><code>203.0.113.10:443</code> → HTTPS server</li>
+              <li><code>203.0.113.10:5432</code> → PostgreSQL database</li>
+            </ul>
+            <p><strong>Common ports:</strong></p>
+            <ul>
+              <li>80 → HTTP</li>
+              <li>443 → HTTPS</li>
+              <li>22 → SSH</li>
+              <li>3306 → MySQL</li>
+            </ul>
+
+            <h3>2. Sockets – Communication Endpoints</h3>
+            <p>
+              A <strong>socket</strong> is defined by IP address + port +
+              protocol (TCP/UDP).
+            </p>
+            <p>Examples:</p>
+            <ul>
+              <li>
+                Client socket:
+                <code>192.168.1.10:53124 → 203.0.113.10:443 (TCP)</code>
+              </li>
+              <li>Server socket: listens on <code>0.0.0.0:8080</code></li>
+            </ul>
+            <p>
+              In code, when you start a backend server (Express, Spring Boot,
+              Django, etc.), you often see messages like:
+            </p>
+            <pre><code>App listening on http://localhost:3000</code></pre>
+            <p>
+              That means your app has opened a socket bound to port
+              <strong>3000</strong>.
+            </p>
+
+            <h3>3. Why Ports &amp; Sockets Matter to Backend Developers</h3>
+            <ul>
+              <li>You must choose which port your service listens on.</li>
+              <li>
+                Firewalls and security groups allow/deny traffic based on ports.
+              </li>
+              <li>Port conflicts cause “address already in use” errors.</li>
+              <li>
+                Load balancers forward traffic to specific ports on backend
+                instances.
+              </li>
+            </ul>
+            <p>
+              Understanding ports and sockets helps you debug connectivity
+              issues and design microservice architectures.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4️⃣ REST & API -->
+        <div id="modal-deep-rest-api" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>REST &amp; API</h2>
+
+            <img
+              src="https://media.licdn.com/dms/image/C4D12AQHh6l0xkbhTPg/article-cover_image-shrink_720_1280/0/1622931040032"
+              alt="REST API illustration"
+              class="modal-image"
+            />
+            <img
+              src="https://howtodoinjava.com/wp-content/uploads/2015/02/Spring-REST-JSON-Example.png"
+              alt="Spring REST JSON example"
+              class="modal-image"
+            />
+
+            <p>
+              REST (Representational State Transfer) is an architectural style
+              for designing networked applications. Most modern web APIs are
+              <strong>RESTful</strong> and use HTTP as the transport protocol.
+            </p>
+
+            <h3>1. What Is a REST API?</h3>
+            <p>A <strong>REST API</strong> typically:</p>
+            <ul>
+              <li>
+                Uses <strong>resources</strong> (e.g. <code>/users</code>,
+                <code>/orders</code>)
+              </li>
+              <li>
+                Uses HTTP <strong>methods</strong> to describe actions: GET
+                (read), POST (create), PUT/PATCH (update), DELETE (remove)
+              </li>
+              <li>Returns structured data, commonly <strong>JSON</strong></li>
+            </ul>
+
+            <p>Example request:</p>
+            <pre><code>GET /api/users/42 HTTP/1.1
+Host: api.example.com
+Accept: application/json</code></pre>
+
+            <p>Example JSON response:</p>
+            <pre><code>{
+  "id": 42,
+  "name": "Yeona",
+  "role": "backend developer"
+}</code></pre>
+
+            <h3>2. Core REST Principles</h3>
+            <ol>
+              <li>
+                <strong>Stateless</strong> – each request contains everything
+                needed; the server does not store client session state.
+              </li>
+              <li>
+                <strong>Uniform Interface</strong> – consistent URLs, methods,
+                and response formats.
+              </li>
+              <li>
+                <strong>Resource-Based</strong> – focus on nouns
+                (<code>/users</code>, <code>/posts</code>) rather than verbs
+                (<code>/getUsers</code>).
+              </li>
+              <li>
+                <strong>Layered System</strong> – clients do not need to know if
+                they talk directly to the server or via proxies / gateways.
+              </li>
+            </ol>
+
+            <h3>3. Why REST Matters for Backend Developers</h3>
+            <ul>
+              <li>It is the default design style for web APIs.</li>
+              <li>
+                Frontend (web, mobile) and other services rely on your REST API.
+              </li>
+              <li>
+                API versioning, error handling, and status codes all follow
+                HTTP/REST conventions.
+              </li>
+              <li>
+                Well-designed REST APIs are easier to maintain, scale, and
+                document.
+              </li>
+            </ul>
+
+            <h3>4. Example Use Case</h3>
+            <p>A typical backend REST API might expose:</p>
+            <ul>
+              <li><code>GET /api/articles</code> – list articles</li>
+              <li><code>POST /api/articles</code> – create an article</li>
+              <li>
+                <code>GET /api/articles/{id}</code> – get a specific article
+              </li>
+              <li><code>PATCH /api/articles/{id}</code> – update it</li>
+              <li><code>DELETE /api/articles/{id}</code> – delete it</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5️⃣ HTTPS / SSL/TLS -->
+        <div id="modal-deep-https" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>HTTPS / SSL/TLS</h2>
+
+            <img
+              src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/5aYOr5erfyNBq20X5djTco/3c859532c91f25d961b2884bf521c1eb/tls-ssl-handshake.png"
+              alt="TLS/SSL handshake"
+              class="modal-image"
+            />
+            <img
+              src="https://www.infosectrain.com/wp-content/uploads/2020/09/http-https.jpg"
+              alt="HTTP vs HTTPS"
+              class="modal-image"
+            />
+
+            <p>
+              HTTPS is the secure version of HTTP. It uses
+              <strong>SSL/TLS</strong>, cryptographic protocols that protect
+              communication from eavesdropping, tampering, and impersonation.
+            </p>
+            <p>
+              Today, HTTPS is required for APIs, logins, payments—essentially
+              the entire modern web.
+            </p>
+
+            <h3>1. What HTTPS Does</h3>
+            <p>HTTPS provides three core guarantees:</p>
+            <ul>
+              <li>
+                🔒 <strong>Encryption</strong> – nobody can read your traffic
+              </li>
+              <li>
+                🛑 <strong>Integrity</strong> – nobody can modify your traffic
+                unnoticed
+              </li>
+              <li>
+                🆔 <strong>Authentication</strong> – the server is who it claims
+                to be
+              </li>
+            </ul>
+
+            <h3>2. How TLS Works (Simplified Handshake)</h3>
+            <ol>
+              <li>
+                <strong>Client Hello</strong> – client proposes TLS version and
+                algorithms.
+              </li>
+              <li>
+                <strong>Server Hello</strong> – server chooses algorithms and
+                sends its certificate.
+              </li>
+              <li>
+                <strong>Certificate Verification</strong> – client checks if the
+                certificate is valid and trusted.
+              </li>
+              <li>
+                <strong>Key Exchange</strong> – both sides derive shared session
+                keys.
+              </li>
+              <li>
+                <strong>Encrypted Communication</strong> – all following HTTP
+                data is encrypted.
+              </li>
+            </ol>
+
+            <h3>3. What SSL Certificates Do</h3>
+            <p>An SSL/TLS certificate proves that:</p>
+            <ul>
+              <li>The server owns the domain</li>
+              <li>A trusted CA has verified the server’s identity</li>
+              <li>Traffic between client and server must be encrypted</li>
+            </ul>
+            <p>
+              Browsers trust certificates signed by CAs such as DigiCert,
+              GlobalSign, Google Trust Services, and Let’s Encrypt.
+            </p>
+
+            <h3>4. Why HTTPS Matters for Backend Developers</h3>
+            <ul>
+              <li>Required for authentication, cookies, logins, and APIs.</li>
+              <li>Plain HTTP exposes passwords, tokens, and personal data.</li>
+              <li>
+                Browsers restrict many features (geolocation, camera, etc.) on
+                non-HTTPS sites.
+              </li>
+              <li>OAuth, JWT, and modern API flows rely on TLS guarantees.</li>
+              <li>Helps prevent man-in-the-middle (MITM) attacks.</li>
+            </ul>
+
+            <h3>5. Example Scenario</h3>
+            <p>If a user sends:</p>
+            <pre><code>Authorization: Bearer &lt;token&gt;</code></pre>
+            <p>
+              Over HTTP → ❌ the token is visible to attackers.<br />
+              Over HTTPS → ✔️ fully encrypted and safe from interception.
+            </p>
+          </div>
+        </div>
+
+        <!-- 6️⃣ Cookies / Sessions / JWT -->
+        <div id="modal-deep-auth" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>Cookies / Sessions / JWT</h2>
+
+            <img
+              src="https://assets.bytebytego.com/diagrams/0155-cookies-vs-sessions-vs-jwt-vs-paseto.png"
+              alt="Cookies vs Sessions vs JWT"
+              class="modal-image"
+            />
+            <img
+              src="https://fusionauth.io/img/shared/json-web-token.png"
+              alt="JWT structure"
+              class="modal-image"
+            />
+
+            <p>
+              Modern applications need ways to authenticate users and maintain
+              state. Cookies, sessions, and JWTs are three major mechanisms used
+              to manage identity and authorization.
+            </p>
+
+            <h3>1. Cookies – Client-Side Storage</h3>
+            <p>
+              A <strong>cookie</strong> is a small key–value pair stored in the
+              user's browser. Cookies can:
+            </p>
+            <ul>
+              <li>Store session IDs</li>
+              <li>Persist user preferences</li>
+              <li>
+                Be automatically sent with each request to the same domain
+              </li>
+            </ul>
+            <p>Important attributes:</p>
+            <ul>
+              <li><code>HttpOnly</code> – prevents JavaScript access</li>
+              <li><code>Secure</code> – only sent via HTTPS</li>
+              <li><code>SameSite</code> – helps mitigate CSRF attacks</li>
+            </ul>
+
+            <h3>2. Sessions – Server-Side Authentication</h3>
+            <p>With <strong>session-based authentication</strong>:</p>
+            <ol>
+              <li>User logs in.</li>
+              <li>
+                Server creates a <strong>session object</strong> in memory or
+                DB.
+              </li>
+              <li>
+                Server sends a <strong>session ID</strong> cookie to the
+                browser.
+              </li>
+              <li>Browser sends that cookie with every request.</li>
+              <li>Server looks up the session and authenticates the user.</li>
+            </ol>
+            <p><strong>Pros:</strong></p>
+            <ul>
+              <li>Server fully controls the session.</li>
+              <li>Easy to revoke or invalidate.</li>
+              <li>Good security for many web apps.</li>
+            </ul>
+            <p><strong>Cons:</strong></p>
+            <ul>
+              <li>Server must store sessions → less scalable.</li>
+              <li>
+                In distributed systems, requires shared session storage or
+                sticky sessions.
+              </li>
+            </ul>
+
+            <h3>3. JWT (JSON Web Token) – Stateless Authentication</h3>
+            <p>A JWT has three parts:</p>
+            <pre><code>header.payload.signature</code></pre>
+            <p>Example payload:</p>
+            <pre><code>{
+  "sub": "12345",
+  "email": "yeona@example.com",
+  "role": "user",
+  "exp": 1712345678
+}</code></pre>
+            <p>Characteristics:</p>
+            <ul>
+              <li>Stored on the client (cookie or localStorage).</li>
+              <li>Server does <strong>not</strong> store session state.</li>
+              <li>Signature ensures token integrity.</li>
+              <li>Great for microservices and distributed systems.</li>
+            </ul>
+            <p><strong>Pros:</strong></p>
+            <ul>
+              <li>Stateless → highly scalable.</li>
+              <li>Works well across multiple services.</li>
+            </ul>
+            <p><strong>Cons:</strong></p>
+            <ul>
+              <li>Harder to revoke immediately.</li>
+              <li>Must be protected from XSS (token theft).</li>
+            </ul>
+
+            <h3>4. Which One Should Backend Developers Use?</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cookies</strong></td>
+                  <td>Keeping small client-side info</td>
+                </tr>
+                <tr>
+                  <td><strong>Sessions</strong></td>
+                  <td>Traditional web apps, dashboards</td>
+                </tr>
+                <tr>
+                  <td><strong>JWT</strong></td>
+                  <td>Mobile apps, APIs, microservices, large-scale systems</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>
+              Each method has specific security concerns (XSS, CSRF, token
+              leaks), so understanding them is critical for secure backend
+              design.
+            </p>
+          </div>
+        </div>
+
+        <!-- 7️⃣ Security Vulnerabilities -->
+        <div id="modal-deep-security" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>Security Vulnerabilities</h2>
+
+            <img
+              src="https://intellisoft.io/wp-content/uploads/2022/12/2-what-are-your-biggest-application-security-concerns_.png"
+              alt="Application security concerns"
+              class="modal-image"
+            />
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20190516152959/Cross-Site-ScriptingXSS.png"
+              alt="Cross-Site Scripting example"
+              class="modal-image"
+            />
+
+            <p>
+              Every backend developer must understand common security threats.
+              Web applications are frequent targets of automated and manual
+              attacks, and insecure systems can leak user data or lose control
+              entirely.
+            </p>
+
+            <h3>1. SQL Injection (SQLi)</h3>
+            <p>
+              Attackers inject SQL fragments into input fields or query
+              parameters.
+            </p>
+            <p>Example of vulnerable code:</p>
+            <pre><code>SELECT * FROM users WHERE email = '" + userInput + "';</code></pre>
+            <p><strong>Risks:</strong></p>
+            <ul>
+              <li>Database exposure</li>
+              <li>Credential leaks</li>
+              <li>Full server compromise</li>
+            </ul>
+            <p><strong>Prevention:</strong></p>
+            <ul>
+              <li>
+                Use <strong>prepared statements</strong> or parameterized
+                queries.
+              </li>
+              <li>Validate and sanitize input.</li>
+              <li>Avoid string concatenation in SQL queries.</li>
+            </ul>
+
+            <h3>2. Cross-Site Scripting (XSS)</h3>
+            <p>
+              Malicious scripts are injected into pages seen by other users.
+            </p>
+            <p>Example:</p>
+            <pre><code>&lt;p&gt;Welcome, &lt;span id="name"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;script&gt;
+  document.getElementById("name").innerHTML = location.search.slice(1);
+&lt;/script&gt;
+</code></pre>
+            <p>
+              If an attacker injects
+              <code>&lt;script&gt;alert("xss")&lt;/script&gt;</code>, that
+              JavaScript will execute in the victim’s browser.
+            </p>
+            <p><strong>Prevention:</strong></p>
+            <ul>
+              <li>Escape/encode all user input before rendering.</li>
+              <li>Use a strong Content Security Policy (CSP).</li>
+              <li>Avoid using <code>innerHTML</code> with untrusted data.</li>
+            </ul>
+
+            <h3>3. CSRF (Cross-Site Request Forgery)</h3>
+            <p>
+              A logged-in user is tricked into performing an action without
+              realizing it.
+            </p>
+            <p>Typical scenario:</p>
+            <ul>
+              <li>Victim logs into a banking site.</li>
+              <li>Visits an attacker’s page.</li>
+              <li>
+                Hidden form auto-submits a money transfer request to the
+                victim’s bank.
+              </li>
+            </ul>
+            <p><strong>Prevention:</strong></p>
+            <ul>
+              <li>Use <code>SameSite</code> cookies.</li>
+              <li>Implement CSRF tokens on state-changing requests.</li>
+              <li>Use the double-submit cookie pattern where appropriate.</li>
+            </ul>
+
+            <h3>4. Other Common Vulnerabilities</h3>
+            <ul>
+              <li>
+                🔐 Weak authentication (guessable passwords, no rate limiting)
+              </li>
+              <li>📡 Unencrypted HTTP traffic</li>
+              <li>🕵️ Man-in-the-Middle attacks</li>
+              <li>🚪 Open ports / misconfigured firewalls</li>
+              <li>🗃️ Sensitive data written to logs</li>
+              <li>🔄 Outdated libraries with known CVEs</li>
+            </ul>
+
+            <h3>5. Why This Matters for Backend Developers</h3>
+            <p>Security isn’t optional. Backend developers must:</p>
+            <ul>
+              <li>Sanitize and validate all input.</li>
+              <li>Design robust authentication and authorization.</li>
+              <li>Protect databases from injection attacks.</li>
+              <li>Secure sessions, cookies, and tokens.</li>
+              <li>Enforce TLS and follow best practices.</li>
+            </ul>
+            <p>
+              Backend developers are often the
+              <strong>last line of defense</strong> between user data and
+              attackers.
+            </p>
+          </div>
+        </div>
       </main>
 
       <!-- Footer -->

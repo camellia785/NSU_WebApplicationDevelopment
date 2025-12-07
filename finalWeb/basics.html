@@ -32,7 +32,7 @@
         <section class="section active">
           <h2 class="section-title">Basic Networking Concepts</h2>
           <div class="cards-grid">
-            <div class="card">
+            <div class="card" data-modal-target="modal-basics-internet">
               <div class="card-icon">🌐</div>
               <h3>How Internet Works</h3>
               <p>
@@ -40,7 +40,7 @@
                 through standardized protocols and infrastructure.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-basics-http">
               <div class="card-icon">🔒</div>
               <h3>HTTP/HTTPS</h3>
               <p>
@@ -48,7 +48,7 @@
                 data transmission over the internet.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-basics-domain">
               <div class="card-icon">🏷️</div>
               <h3>Domain Name</h3>
               <p>
@@ -56,7 +56,7 @@
                 internet and map to IP addresses.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-basics-hosting">
               <div class="card-icon">🖥️</div>
               <h3>Hosting & Browsers</h3>
               <p>
@@ -64,7 +64,7 @@
                 software that displays web content.
               </p>
             </div>
-            <div class="card">
+            <div class="card" data-modal-target="modal-basics-dns">
               <div class="card-icon">📡</div>
               <h3>DNS</h3>
               <p>
@@ -74,6 +74,482 @@
             </div>
           </div>
         </section>
+
+        <!-- Modals for Basics page -->
+        <!-- 1. modal-basics-internet -->
+        <div id="modal-basics-internet" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>How Internet Works</h2>
+
+            <img
+              src="https://substack-post-media.s3.amazonaws.com/public/images/4a38175b-11e8-40ae-879c-ab3ce2027089_2008x1252.png"
+              alt="Internet packet flow diagram"
+              class="modal-image"
+            />
+
+            <p>
+              The internet is a massive, interconnected network of
+              devices—computers, phones, servers—communicating by sending small
+              units of data called
+              <strong>packets</strong>. Understanding how these packets travel
+              from a user to a server (and back) is essential for backend
+              developers.
+            </p>
+
+            <h3>1. What the Internet Is (Definition)</h3>
+            <p>At a high level, the internet is built on three main pieces:</p>
+            <ul>
+              <li>
+                <strong>Clients</strong> – devices like browsers, mobile apps,
+                or API consumers that initiate requests.
+              </li>
+              <li>
+                <strong>Servers</strong> – machines that process the request and
+                return a response (HTML, JSON, files, etc.).
+              </li>
+              <li>
+                <strong>Routers &amp; Network Infrastructure</strong> – routers
+                forward packets between networks, choosing the fastest and most
+                reliable path.
+              </li>
+            </ul>
+
+            <p>
+              Every request (like loading <code>google.com</code>) involves
+              multiple routers forwarding packets until they reach the
+              destination server.
+            </p>
+
+            <h3>2. How Data Moves (Packet Flow)</h3>
+            <p>When you send a request:</p>
+            <ul>
+              <li>
+                Your device breaks the data into <strong>packets</strong>.
+              </li>
+              <li>
+                Each packet is labeled with source IP, destination IP, port
+                numbers, and sequence numbers.
+              </li>
+              <li>Packets travel independently through many routers.</li>
+              <li>The server receives all packets and reassembles them.</li>
+              <li>The server sends response packets back in the same way.</li>
+            </ul>
+            <p>
+              Even if packets take different routes, the server reconstructs
+              them in order.
+            </p>
+
+            <h3>3. Why Backend Developers Should Care</h3>
+            <p>Understanding internet flow helps you:</p>
+            <ul>
+              <li>Debug slow or failing requests</li>
+              <li>Understand timeouts, retries, or packet loss</li>
+              <li>Communicate better with DevOps or Infra teams</li>
+              <li>Design scalable APIs and services</li>
+              <li>Interpret logs related to networking issues</li>
+            </ul>
+            <p>
+              A backend system does not run in isolation—every action is part of
+              a larger network.
+            </p>
+
+            <h3>4. Real Example</h3>
+            <p>When a client calls:</p>
+            <pre><code>GET https://api.example.com/users</code></pre>
+            <p>This triggers:</p>
+            <ul>
+              <li>DNS lookup</li>
+              <li>TCP connection (3-way handshake)</li>
+              <li>TLS negotiation (if HTTPS)</li>
+              <li>Request packet transmission</li>
+              <li>Response packets returning</li>
+            </ul>
+            <p>
+              Understanding each stage lets you quickly diagnose
+              <em>“why something is slow or broken.”</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- 2. modal-basics-http -->
+        <div id="modal-basics-http" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>HTTP / HTTPS</h2>
+
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20210905091508/ImageOfHTTPRequestResponse-660x374.png"
+              alt="HTTP request and response diagram"
+              class="modal-image"
+            />
+
+            <p>
+              HTTP (HyperText Transfer Protocol) is the foundation of
+              communication on the web. HTTPS is the secure, encrypted version
+              of HTTP, protecting data in transit.
+            </p>
+
+            <h3>1. What HTTP Is (Definition)</h3>
+            <p>
+              HTTP is a
+              <strong>stateless, request-response protocol</strong> used by
+              browsers, mobile apps, and backend services.
+            </p>
+            <p>A typical HTTP request includes:</p>
+            <ul>
+              <li><strong>Method</strong> — GET, POST, PUT, DELETE</li>
+              <li>
+                <strong>Headers</strong> — metadata such as auth tokens, content
+                type, user agent
+              </li>
+              <li>
+                <strong>Body</strong> — data sent to the server (JSON, form
+                data, etc.)
+              </li>
+              <li><strong>URL</strong> — the resource being requested</li>
+            </ul>
+            <p>A server responds with:</p>
+            <ul>
+              <li>Status code (200, 404, 500…)</li>
+              <li>Response headers</li>
+              <li>Response body</li>
+            </ul>
+
+            <h3>2. Why HTTPS Exists</h3>
+            <p>
+              HTTP has <strong>no encryption</strong>, which means anyone on the
+              network could read the data. To solve this, HTTPS combines HTTP
+              with <strong>TLS/SSL (Transport Layer Security)</strong>.
+            </p>
+            <p>This adds:</p>
+            <ul>
+              <li><strong>Encryption</strong> — prevents eavesdropping</li>
+              <li>
+                <strong>Authentication</strong> — ensures the server is
+                legitimate
+              </li>
+              <li><strong>Integrity</strong> — prevents data tampering</li>
+            </ul>
+
+            <h3>3. How HTTPS Works (TLS Handshake Overview)</h3>
+            <ol>
+              <li>Client connects and says “I want to speak HTTPS.”</li>
+              <li>
+                Server sends its <strong>certificate</strong> (signed by a
+                Certificate Authority).
+              </li>
+              <li>Client verifies the certificate's legitimacy.</li>
+              <li>Both sides generate shared encryption keys.</li>
+              <li>Encrypted communication begins.</li>
+            </ol>
+            <p>
+              This process happens in milliseconds but enables secure web
+              browsing, APIs, payments, and login systems.
+            </p>
+
+            <h3>4. Role of Certificate Authorities (CAs)</h3>
+            <p>
+              CAs are trusted organizations (e.g., DigiCert, Google Trust
+              Services) that issue digital certificates.
+            </p>
+            <p>A certificate proves that:</p>
+            <ul>
+              <li>The server is who it claims to be</li>
+              <li>The domain is valid</li>
+              <li>The connection must be encrypted</li>
+            </ul>
+
+            <h3>5. Why This Matters for Backend Developers</h3>
+            <p>As a backend developer, understanding HTTP/HTTPS helps you:</p>
+            <ul>
+              <li>Design APIs correctly</li>
+              <li>Handle headers, cookies, and authentication</li>
+              <li>Debug CORS and networking issues</li>
+              <li>Choose secure settings (TLS version, HSTS, etc.)</li>
+              <li>
+                Understand why certain requests fail (expired certificate, wrong
+                domain, insecure connection…)
+              </li>
+            </ul>
+
+            <h3>6. Real Example</h3>
+            <p>An HTTP request might look like:</p>
+            <pre><code>GET /users HTTP/1.1
+Host: api.example.com
+Authorization: Bearer &lt;token&gt;
+Accept: application/json</code></pre>
+            <p>
+              With HTTPS, all of this is sent inside an encrypted TLS tunnel.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3) modal-basics-domain -->
+        <div id="modal-basics-domain" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>Domain Name</h2>
+
+            <img
+              src="https://www.websitespot.com/blog/wp-content/uploads/2017/02/what-is-domain-name-1.jpg"
+              alt="Domain name structure diagram"
+              class="modal-image"
+            />
+
+            <p>
+              A <strong>domain name</strong> is the human-readable address of a
+              website or service — for example, <code>google.com</code> instead
+              of <code>142.250.72.14</code>. Because humans cannot easily
+              memorize long IP addresses, domains act as a friendly abstraction
+              on top of the internet’s addressing system.
+            </p>
+
+            <h3>1. What a Domain Name Is (Definition)</h3>
+            <p>A domain name is composed of hierarchical parts:</p>
+            <ul>
+              <li><strong>TLD (Top-Level Domain)</strong> — .com, .org, .io</li>
+              <li>
+                <strong>Second-level domain</strong> — google, amazon, yeonadev
+              </li>
+              <li>
+                <strong>Subdomains</strong> — www.google.com, api.example.com
+              </li>
+            </ul>
+
+            <p>
+              Each domain maps to one or more <strong>IP addresses</strong> so
+              that computers know where to find the correct server.
+            </p>
+
+            <h3>2. Why Domain Names Matter</h3>
+            <ul>
+              <li>Users would otherwise need to type IP addresses directly</li>
+              <li>
+                Websites could not change servers/IPs without breaking links
+              </li>
+              <li>Infrastructure becomes much easier to maintain</li>
+            </ul>
+
+            <p>
+              Domain names provide stability even when underlying servers
+              change.
+            </p>
+
+            <h3>3. How Domains Are Connected to DNS</h3>
+            <p>
+              Domain names depend entirely on DNS to resolve names → IP
+              addresses.
+            </p>
+            <p>Example:</p>
+            <pre><code>api.myapp.com → 203.0.113.16</code></pre>
+
+            <p>DNS records define these mappings (A, AAAA, CNAME, MX, etc.).</p>
+
+            <h3>4. Example Scenario</h3>
+            <p>If your backend service moves to a new hosting provider:</p>
+            <ul>
+              <li>You update the domain’s DNS records</li>
+              <li>Users keep using the same domain</li>
+              <li>Traffic automatically goes to the new server</li>
+            </ul>
+
+            <h3>5. Why Backend Developers Should Care</h3>
+            <ul>
+              <li>
+                APIs often use subdomains like <code>api.example.com</code>
+              </li>
+              <li>Microservices may use their own domains</li>
+              <li>Misconfigured DNS can break your backend instantly</li>
+              <li>SSL certificates require correct domain & DNS settings</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4) modal-basics-hosting -->
+        <div id="modal-basics-hosting" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>Hosting &amp; Browsers</h2>
+
+            <img
+              src="https://web.dev/static/articles/howbrowserswork/image/webkit-main-flow-b779d50c0cf28.png"
+              alt="Browser rendering pipeline"
+              class="modal-image"
+            />
+
+            <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20250705152348042640/Request-and-Response-Cycle.webp"
+              alt="Request response cycle"
+              class="modal-image"
+            />
+
+            <p>
+              Web hosting determines
+              <strong>where your website or API physically lives</strong>, while
+              browsers determine <strong>how users experience it</strong>.
+              Together, they form the core of the user experience.
+            </p>
+
+            <h3>1. What Hosting Is (Definition)</h3>
+            <p>Hosting is a service that stores:</p>
+            <ul>
+              <li>Website files (HTML, CSS, JS)</li>
+              <li>Backend server code and APIs</li>
+              <li>Databases and static assets</li>
+            </ul>
+
+            <p>Types of hosting include:</p>
+            <ul>
+              <li>Shared Hosting</li>
+              <li>VPS (Virtual Private Server)</li>
+              <li>Cloud Hosting (AWS, GCP, Azure)</li>
+              <li>Serverless / Edge Hosting (Vercel, Cloudflare Workers)</li>
+            </ul>
+
+            <h3>2. How Browsers Work</h3>
+            <p>Browsers perform multiple steps to render a webpage:</p>
+            <ol>
+              <li>Parse HTML</li>
+              <li>Load CSS, JS, and images</li>
+              <li>Build DOM tree</li>
+              <li>Build CSSOM</li>
+              <li>Combine into the Render Tree</li>
+              <li>Paint the final layout to the screen</li>
+            </ol>
+
+            <p>Browsers also send HTTP requests and interpret responses.</p>
+
+            <h3>3. Why Hosting & Browsers Matter Together</h3>
+            <p>
+              Even if the server is fast, performance suffers if the browser:
+            </p>
+            <ul>
+              <li>Loads too many scripts</li>
+              <li>Uses render-blocking resources</li>
+              <li>Handles unoptimized images</li>
+            </ul>
+
+            <h3>4. Example Scenario</h3>
+            <p>When loading <code>myportfolio.com</code>:</p>
+            <ul>
+              <li>Browser sends request → hosting server responds with HTML</li>
+              <li>Browser loads assets and renders UI</li>
+              <li>Scripts execute to enable interactions</li>
+            </ul>
+
+            <h3>5. Why Backend Developers Should Care</h3>
+            <ul>
+              <li>API latency affects page load speed</li>
+              <li>Backend response size impacts rendering time</li>
+              <li>Incorrect CORS headers break browser requests</li>
+              <li>Hosting misconfigurations lead to outages</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 5) modal-basics-dns -->
+        <div id="modal-basics-dns" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>DNS (Domain Name System)</h2>
+
+            <img
+              class="modal-image"
+              src="https://www.indusface.com/wp-content/uploads/2024/10/DNS-lookup-process-.png"
+              alt="DNS lookup process"
+            />
+
+            <img
+              class="modal-image"
+              src="https://substack-post-media.s3.amazonaws.com/public/images/f0a1bb2c-a1bc-40ce-abde-6fb9d2a66ce8_1600x570.png"
+              alt="DNS hierarchy diagram"
+            />
+
+            <p>
+              DNS is the system that translates user-friendly domain names into
+              IP addresses used by machines. It is often called the
+              <strong>“phonebook of the internet.”</strong>
+            </p>
+
+            <h3>1. What DNS Is</h3>
+            <p>
+              DNS is a distributed global database organized into several
+              layers:
+            </p>
+            <ul>
+              <li>Root servers</li>
+              <li>TLD servers (.com, .net, .org)</li>
+              <li>Authoritative name servers</li>
+              <li>Recursive resolvers (ISP DNS, Google DNS)</li>
+            </ul>
+
+            <h3>2. How DNS Lookup Works</h3>
+            <ol>
+              <li>Browser checks local DNS cache</li>
+              <li>OS resolver checks cache</li>
+              <li>Request is sent to a recursive resolver (e.g., 8.8.8.8)</li>
+              <li>The resolver contacts the <strong>Root server</strong></li>
+              <li>Root refers to the <strong>TLD server</strong></li>
+              <li>TLD refers to the <strong>authoritative server</strong></li>
+              <li>Authoritative server responds with the IP address</li>
+              <li>Browser finally sends HTTP/HTTPS request to that IP</li>
+            </ol>
+
+            <h3>3. Why DNS Matters</h3>
+            <ul>
+              <li>If DNS fails, your website becomes unreachable</li>
+              <li>DNS enables seamless server migration</li>
+              <li>Load balancers often use DNS routing</li>
+              <li>APIs and microservices depend on internal DNS</li>
+            </ul>
+
+            <h3>4. DNS Records Developers Should Know</h3>
+            <ul>
+              <li><strong>A</strong> — Domain → IPv4</li>
+              <li><strong>AAAA</strong> — Domain → IPv6</li>
+              <li><strong>CNAME</strong> — Domain alias</li>
+              <li><strong>MX</strong> — Mail servers</li>
+              <li><strong>TXT</strong> — Verification, SPF, DKIM</li>
+              <li><strong>NS</strong> — Name server delegation</li>
+            </ul>
+
+            <h3>5. Example Scenario</h3>
+            <p>If your backend API moves from:</p>
+            <pre><code>203.0.113.10 → 203.0.113.20</code></pre>
+            <p>
+              You update DNS — users still use the same domain, and traffic
+              updates automatically.
+            </p>
+
+            <h3>6. Why Backend Developers Must Understand DNS</h3>
+            <ul>
+              <li>SSL certificates require DNS ownership</li>
+              <li>Microservice routing depends on DNS</li>
+              <li>API outages often stem from DNS issues</li>
+              <li>Incorrect DNS can break production instantly</li>
+            </ul>
+          </div>
+        </div>
       </main>
 
       <!-- Footer -->

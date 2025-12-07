@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 현재 파일 이름 가져오기 (예: index.html, basics.html ...)
   let currentPage = window.location.pathname.split("/").pop();
 
-  // 루트에서 열렸을 때 대비
   if (!currentPage) {
     currentPage = "index.html";
   }
@@ -32,10 +31,54 @@ document.addEventListener("DOMContentLoaded", () => {
       link.classList.remove("active");
     }
   });
+
+  // =========================================
+  // 2. 모달 열기/닫기 로직
+  // =========================================
+
+  const body = document.body;
+  const modalTriggers = document.querySelectorAll("[data-modal-target]");
+  const modals = document.querySelectorAll(".modal");
+
+  // 카드(또는 버튼) 클릭 → 해당 모달 열기
+  modalTriggers.forEach((trigger) => {
+    const targetId = trigger.getAttribute("data-modal-target");
+    const modal = document.getElementById(targetId);
+
+    if (!modal) return;
+
+    trigger.style.cursor = "pointer";
+
+    trigger.addEventListener("click", () => {
+      modal.classList.add("show");
+      body.classList.add("modal-open");
+    });
+  });
+
+  // 닫기 버튼 또는 오버레이 클릭 → 모달 닫기
+  const modalCloseElements = document.querySelectorAll("[data-modal-close]");
+
+  modalCloseElements.forEach((el) => {
+    el.addEventListener("click", () => {
+      const modal = el.closest(".modal");
+      if (modal) {
+        modal.classList.remove("show");
+      }
+      body.classList.remove("modal-open");
+    });
+  });
+
+  // ESC 키로 모달 닫기
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      modals.forEach((modal) => modal.classList.remove("show"));
+      body.classList.remove("modal-open");
+    }
+  });
 });
 
 // =========================================
-// 2. 햄버거 메뉴 토글 함수 (모바일 네비게이션)
+// 3. 햄버거 메뉴 토글 함수 (모바일 네비게이션)
 // =========================================
 function hamburger() {
   const navlinks = document.getElementById("nav-links");

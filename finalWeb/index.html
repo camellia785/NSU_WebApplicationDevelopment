@@ -38,7 +38,8 @@
             </p>
           </div>
           <div class="cards-grid">
-            <div class="card">
+            <!-- card 1: 이름짓기 -->
+            <div class="card" data-modal-target="modal-home-learn">
               <div class="card-icon">📚</div>
               <h3>What You'll Learn</h3>
               <p>
@@ -47,7 +48,8 @@
                 practices.
               </p>
             </div>
-            <div class="card">
+            <!-- card 2 -->
+            <div class="card" data-modal-target="modal-home-backend">
               <div class="card-icon">🎯</div>
               <h3>For Backend Developers</h3>
               <p>
@@ -56,7 +58,8 @@
                 best practices.
               </p>
             </div>
-            <div class="card">
+            <!-- card 3 -->
+            <div class="card" data-modal-target="modal-home-practical">
               <div class="card-icon">🚀</div>
               <h3>Practical Knowledge</h3>
               <p>
@@ -67,6 +70,150 @@
             </div>
           </div>
         </section>
+        <!-- Modals for Home page -->
+        <div id="modal-home-learn" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+            <h2>What You'll Learn</h2>
+
+            <p>
+              Networking fundamentals are the invisible foundation of every
+              modern application. In this site, you’ll build a clear, practical
+              understanding of how data moves across the internet and how
+              backend services communicate.
+            </p>
+
+            <p>By the end, you’ll be able to explain and work with:</p>
+            <ul>
+              <li>
+                How the internet works at a high level (clients, servers,
+                routers, packets)
+              </li>
+              <li>Core web protocols such as HTTP and HTTPS</li>
+              <li>DNS and domain names, and how a URL becomes a real server</li>
+              <li>
+                Hosting and browsers, and how a request turns into a rendered
+                page
+              </li>
+              <li>Transport concepts like TCP vs UDP and ports</li>
+              <li>
+                Essential security ideas: TLS/SSL, cookies, sessions, tokens,
+                and common vulnerabilities
+              </li>
+            </ul>
+
+            <p>
+              The goal is not just memorizing terms, but being able to
+              <strong>connect the dots</strong>: given a request from a browser
+              or API client, you’ll understand what happens at each layer until
+              the response is sent back.
+            </p>
+          </div>
+        </div>
+
+        <div id="modal-home-backend" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+            <h2>For Backend Developers</h2>
+            <p>
+              This site is designed with backend developers in mind. Writing
+              controllers and database queries is only half the job — your code
+              always lives inside a <strong>networked system</strong>.
+            </p>
+
+            <p>
+              As you go through the content, you’ll see how networking concepts
+              directly affect backend work:
+            </p>
+            <ul>
+              <li>
+                Designing APIs that use HTTP methods and status codes correctly
+              </li>
+              <li>
+                Understanding request/response lifecycles, timeouts, and retries
+              </li>
+              <li>
+                Choosing between TCP and UDP–based services depending on your
+                use case
+              </li>
+              <li>Handling authentication with cookies, sessions, and JWTs</li>
+              <li>Protecting your services from common web attacks</li>
+            </ul>
+
+            <p>
+              You’ll also gain intuition for reading logs and debugging real
+              issues, such as:
+            </p>
+            <ul>
+              <li>“Why is this request so slow?”</li>
+              <li>
+                “Is the problem in my app, the database, DNS, or the network?”
+              </li>
+            </ul>
+
+            <p>
+              By the end, you won’t see the network as a black box anymore.
+              You’ll be able to reason about architecture, communicate better
+              with DevOps and SRE teams, and design backend systems that are
+              more reliable and secure.
+            </p>
+          </div>
+        </div>
+
+        <div id="modal-home-practical" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+            <h2>Practical Knowledge</h2>
+            <p>
+              Theory is important, but networking only really “clicks” when you
+              see it in action. Throughout this site, you’ll be encouraged to
+              <strong>try things yourself</strong>, not just read.
+            </p>
+
+            <p>Examples of what you’ll practice:</p>
+            <ul>
+              <li>Running a simple HTTP server and sending requests to it</li>
+              <li>
+                Inspecting requests and responses with browser DevTools or
+                <code>curl</code>
+              </li>
+              <li>
+                Looking up DNS records and understanding how a domain maps to an
+                IP
+              </li>
+              <li>
+                Experimenting with HTTPS and seeing how certificates work in the
+                browser
+              </li>
+              <li>
+                Observing how load balancing or reverse proxies change request
+                flow
+              </li>
+            </ul>
+
+            <p>
+              Each topic is paired with concrete, backend-oriented scenarios, so
+              you can connect concepts to real projects — for example, deploying
+              an API, debugging CORS issues, or tracking down a failing login
+              flow.
+            </p>
+
+            <p>
+              The goal is for you to walk away with
+              <strong>skills you can apply immediately</strong> in your backend
+              work, not just abstract knowledge.
+            </p>
+          </div>
+        </div>
       </main>
 
       <!-- Footer -->

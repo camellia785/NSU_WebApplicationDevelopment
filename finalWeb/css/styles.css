@@ -413,3 +413,102 @@ body {
     text-align: left;
   }
 }
+
+/* ============================
+   Modal
+============================ */
+
+.modal {
+  display: none; /* 숨김 기본값 */
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 동일 */
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6); /* 어두운 반투명 배경 */
+}
+
+.modal-content {
+  position: relative;
+  width: min(900px, 95%); /* 👉 더 넓게 */
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem 2.25rem; /* 👉 여백도 살짝 넉넉하게 */
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+  z-index: 1;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.modal-content h3 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.modal-content p {
+  color: var(--foreground);
+  line-height: 1.7;
+  font-size: 0.98rem;
+  margin-bottom: 0.75rem;
+}
+
+.modal-content ul {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  list-style: disc;
+}
+
+.modal-content li {
+  margin-bottom: 0.35rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.modal-close:hover {
+  color: #111827;
+}
+
+body.modal-open {
+  overflow: hidden; /* 모달 열리면 배경 스크롤 막기 */
+}
+
+/* 모바일에서 모달 최적화 */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    padding: 1.25rem 1.5rem;
+  }
+}
+.modal-content .modal-image {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}

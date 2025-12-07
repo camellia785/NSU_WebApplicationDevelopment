@@ -29,11 +29,12 @@
       </header>
 
       <!-- Main Content -->
-      <main class="main-content">
+      <m class="main-content">
         <section class="section active">
           <h2 class="section-title">Backend in Practice</h2>
           <div class="cards-grid">
-            <div class="card">
+            <!-- (1) loadbalancing -->
+            <div class="card" data-modal-target="modal-practice-loadbalancing">
               <div class="card-icon">⚖️</div>
               <h3>Load Balancing</h3>
               <p>
@@ -41,7 +42,8 @@
                 optimize performance and prevent overload.
               </p>
             </div>
-            <div class="card">
+            <!-- (2) proxy -->
+            <div class="card" data-modal-target="modal-practice-proxy">
               <div class="card-icon">↔️</div>
               <h3>Proxy vs Reverse Proxy</h3>
               <p>
@@ -50,7 +52,8 @@
                 security.
               </p>
             </div>
-            <div class="card">
+            <!-- (3) cloud -->
+            <div class="card" data-modal-target="modal-practice-cloud">
               <div class="card-icon">☁️</div>
               <h3>Cloud Networking (AWS/GCP)</h3>
               <p>
@@ -58,7 +61,8 @@
                 services like EC2, VPC, and content delivery networks.
               </p>
             </div>
-            <div class="card">
+            <!-- (4) vpc-firewalls -->
+            <div class="card" data-modal-target="modal-practice-vpc-firewalls">
               <div class="card-icon">🔒</div>
               <h3>VPC & Firewalls</h3>
               <p>
@@ -68,6 +72,405 @@
             </div>
           </div>
         </section>
+<!-- 1) Load Balancing -->
+        <div id="modal-practice-loadbalancing" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>Load Balancing</h2>
+
+            <img
+              src="https://images.wondershare.com/edrawmax/templates/network-diagram-for-load-balancing.png"
+              alt="Network diagram for load balancing"
+              class="modal-image"
+            />
+            <img
+              src="https://containous.ghost.io/content/images/2023/02/Diagram-1--1--1.jpg"
+              alt="Load balancer and backend servers diagram"
+              class="modal-image"
+            />
+
+            <p>
+              Load balancing distributes incoming traffic across multiple backend
+              servers so that no single machine is overwhelmed. This is essential
+              for scaling applications, improving performance, and ensuring high
+              availability.
+            </p>
+
+            <h3>1. What Load Balancers Do</h3>
+            <p>
+              A load balancer sits <strong>in front of your backend servers</strong>
+              and decides which server should handle each incoming request.
+            </p>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+              <li>🚀 Improved performance</li>
+              <li>🛡️ Fault tolerance (a server can fail and traffic continues)</li>
+              <li>⚙️ Scalability (add or remove servers at any time)</li>
+            </ul>
+
+            <h3>2. Common Load Balancing Algorithms</h3>
+            <ol>
+              <li>
+                <strong>Round Robin</strong> – requests go to servers in a circular
+                order (A → B → C → A).
+              </li>
+              <li>
+                <strong>Least Connections</strong> – chooses the server with the
+                fewest active connections.
+              </li>
+              <li>
+                <strong>Weighted Round Robin</strong> – sends more traffic to
+                stronger servers.
+              </li>
+              <li>
+                <strong>IP Hash</strong> – routes the same client IP to the same
+                server (sticky behavior).
+              </li>
+            </ol>
+
+            <h3>3. Types of Load Balancers</h3>
+            <ul>
+              <li>
+                <strong>Layer 4 (Transport)</strong> – based on TCP/UDP
+                information.
+              </li>
+              <li>
+                <strong>Layer 7 (Application)</strong> – based on HTTP headers,
+                paths, cookies, etc.
+              </li>
+            </ul>
+            <p>Example Layer 7 routing rule:</p>
+            <ul>
+              <li><code>/api/users</code> → User Service</li>
+              <li><code>/api/orders</code> → Order Service</li>
+            </ul>
+
+            <h3>4. Real Example</h3>
+            <p>
+              If your API receives <strong>10,000 requests per second</strong>:
+            </p>
+            <ul>
+              <li>Without load balancing → one server overloads and crashes.</li>
+              <li>
+                With load balancing → five servers share ~2,000 requests each and
+                stay healthy.
+              </li>
+            </ul>
+
+            <h3>5. Why Backend Developers Must Understand This</h3>
+            <ul>
+              <li>Determines how your API traffic flows in production.</li>
+              <li>Helps optimize concurrency and server performance.</li>
+              <li>Essential for microservices, Kubernetes, AWS ELB/ALB, etc.</li>
+              <li>Key to diagnosing issues when one instance is overloaded.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2) Proxy vs Reverse Proxy -->
+        <div id="modal-practice-proxy" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>Proxy vs Reverse Proxy</h2>
+
+            <img
+              src="https://a-us.storyblok.com/f/1022703/960x540/9a29323a18/forward-vs-reverse-proxies-1.png/m/960x540/filters:quality(80)"
+              alt="Forward vs Reverse Proxy diagram"
+              class="modal-image"
+            />
+            <img
+              src="https://journaldev.nyc3.cdn.digitaloceanspaces.com/2019/03/nginx-reverse-proxy.png"
+              alt="Nginx reverse proxy"
+              class="modal-image"
+            />
+
+            <p>
+              Proxies act as intermediaries in network communication, but they
+              serve different purposes depending on
+              <strong>where they sit</strong>—in front of the client or in front
+              of the server.
+            </p>
+
+            <h3>1. Forward Proxy (Client-Side Proxy)</h3>
+            <p>A <strong>forward proxy</strong> sits between the client and the internet.</p>
+            <p><strong>Use cases:</strong></p>
+            <ul>
+              <li>Hiding the client’s identity</li>
+              <li>Filtering or monitoring outgoing traffic</li>
+              <li>Providing access control</li>
+              <li>Bypassing geolocation restrictions</li>
+              <li>Caching frequently accessed content</li>
+            </ul>
+            <p>
+              Example: A company network forces all outgoing traffic through a
+              proxy for monitoring and policy enforcement.
+            </p>
+
+            <h3>2. Reverse Proxy (Server-Side Proxy)</h3>
+            <p>
+              A <strong>reverse proxy</strong> sits in front of backend servers.
+              Clients send requests to the proxy, which forwards them to one or
+              more internal services.
+            </p>
+            <p><strong>Use cases:</strong></p>
+            <ul>
+              <li>Load balancing across multiple backend servers</li>
+              <li>SSL termination (handling HTTPS)</li>
+              <li>Caching static or frequent responses</li>
+              <li>Protecting backend IP addresses</li>
+              <li>Routing traffic to microservices</li>
+            </ul>
+            <p><strong>Common reverse proxies:</strong> Nginx, HAProxy, Envoy, Traefik</p>
+
+            <h3>3. Key Difference</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Sits In Front Of</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Forward Proxy</strong></td>
+                  <td>Clients</td>
+                  <td>Controls outbound requests</td>
+                </tr>
+                <tr>
+                  <td><strong>Reverse Proxy</strong></td>
+                  <td>Servers</td>
+                  <td>Controls inbound requests</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>4. Real Example (Reverse Proxy with Nginx)</h3>
+            <pre><code>client → nginx → node backend</code></pre>
+            <p>Nginx can handle:</p>
+            <ul>
+              <li>Rate limiting</li>
+              <li>SSL termination (HTTPS)</li>
+              <li>Compression</li>
+              <li>Routing to multiple backend instances</li>
+            </ul>
+            <p>
+              Your Node/Python/Java backend focuses only on business logic while
+              the reverse proxy handles networking concerns.
+            </p>
+
+            <h3>5. Why This Matters to Backend Developers</h3>
+            <ul>
+              <li>Reverse proxies are used in almost all production setups.</li>
+              <li>They improve performance, security, and reliability.</li>
+              <li>They enable microservice routing and blue/green deployments.</li>
+              <li>Understanding them is key for debugging and scaling APIs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3) Cloud Networking (AWS/GCP) -->
+        <div id="modal-practice-cloud" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>Cloud Networking (AWS / GCP)</h2>
+
+            <img
+              src="https://docs.aws.amazon.com/images/prescriptive-guidance/latest/integrate-third-party-services/images/p2_vpc-peering.png"
+              alt="AWS VPC peering example"
+              class="modal-image"
+            />
+            <img
+              src="https://cloud.google.com/static/architecture/images/vpc-bps-native-firewall-rules.svg"
+              alt="GCP VPC and firewall rules"
+              class="modal-image"
+            />
+
+            <p>
+              Cloud networking defines how your application communicates inside
+              cloud infrastructure. Understanding VPCs, subnets, gateways, and
+              routing is essential for backend developers working with modern
+              deployments.
+            </p>
+
+            <h3>1. VPC (Virtual Private Cloud)</h3>
+            <p>
+              A <strong>VPC</strong> is your isolated virtual network in the
+              cloud. You control:
+            </p>
+            <ul>
+              <li>IP address ranges</li>
+              <li>Subnets</li>
+              <li>Routing rules</li>
+              <li>Network access controls</li>
+            </ul>
+            <p>
+              VPCs ensure that unrelated systems cannot directly interact with
+              your applications.
+            </p>
+
+            <h3>2. Subnets</h3>
+            <p>Subnets divide your VPC into smaller network segments:</p>
+            <ul>
+              <li>
+                <strong>Public Subnets</strong> – accessible from the internet
+                (load balancers, NAT gateways).
+              </li>
+              <li>
+                <strong>Private Subnets</strong> – no direct internet access
+                (application servers, databases).
+              </li>
+            </ul>
+            <p>This separation adds a strong security layer.</p>
+
+            <h3>3. Security Groups &amp; Firewall Rules</h3>
+            <p>
+              Cloud providers use <strong>Security Groups</strong> (instance-level
+              firewalls) and <strong>Network ACLs</strong> (subnet-level firewalls).
+            </p>
+            <p>Rules define:</p>
+            <ul>
+              <li>Which inbound IPs and ports are allowed</li>
+              <li>Which outbound destinations are allowed</li>
+            </ul>
+            <p>Example inbound rule:</p>
+            <pre><code>Allow port 443 from anywhere Allow port 22 from admin IP only</code></pre>
+
+            <h3>4. Internet Gateway &amp; NAT</h3>
+            <ul>
+              <li>
+                <strong>Internet Gateway (IGW)</strong> – allows public subnets to
+                reach the internet.
+              </li>
+              <li>
+                <strong>NAT Gateway</strong> – allows instances in private subnets
+                to make outbound requests without being publicly exposed.
+              </li>
+            </ul>
+
+            <h3>5. Load Balancer Integration</h3>
+            <p>A typical cloud architecture might look like:</p>
+            <pre><code>Internet → Load Balancer → Public Subnet → Private Subnet → App Servers → Database</code></pre>
+            <p>
+              This structure keeps sensitive infrastructure (app servers, DB) in
+              private networks while exposing only safe entry points.
+            </p>
+
+            <h3>6. Why Backend Developers Must Know This</h3>
+            <ul>
+              <li>Deploying APIs requires correct subnet and security group setup.</li>
+              <li>Database access issues are often caused by misconfigured rules.</li>
+              <li>Scaling and high availability depend on good VPC design.</li>
+              <li>
+                A huge portion of “cloud bugs” are really networking
+                misconfigurations.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4) VPC & Firewalls -->
+        <div id="modal-practice-vpc-firewalls" class="modal">
+          <div class="modal-overlay" data-modal-close></div>
+          <div class="modal-content">
+            <button class="modal-close" type="button" data-modal-close>
+              &times;
+            </button>
+
+            <h2>VPC &amp; Firewalls</h2>
+
+            <img
+              src="https://docs.aws.amazon.com/images/vpc/latest/userguide/images/security-group-overview.png"
+              alt="Security group overview in AWS"
+              class="modal-image"
+            />
+            <img
+              src="https://www.techtarget.com/rms/onlineImages/security-inbound_outbound_firewall_mobile.jpg"
+              alt="Inbound and outbound firewall rules"
+              class="modal-image"
+            />
+
+            <p>
+              Firewalls and VPC isolation form the foundation of cloud security.
+              They determine what traffic can flow in or out of your systems and
+              protect your backend services from unauthorized access.
+            </p>
+
+            <h3>1. Network Isolation in VPCs</h3>
+            <p>VPCs allow you to isolate infrastructure so that:</p>
+            <ul>
+              <li>Databases are not exposed to the public internet.</li>
+              <li>Internal APIs are reachable only by internal services.</li>
+              <li>Each tier of your architecture has controlled access.</li>
+            </ul>
+            <p>Isolation is a major security benefit and a best practice.</p>
+
+            <h3>2. Firewalls: Inbound &amp; Outbound Rules</h3>
+            <p>Every cloud instance is protected by firewall rules:</p>
+
+            <h4>Inbound Rules</h4>
+            <p>Define what traffic is allowed <strong>into</strong> a server.</p>
+            <ul>
+              <li>Allow HTTPS (443) from anywhere.</li>
+              <li>Allow SSH (22) only from admin IPs.</li>
+              <li>Allow DB port only from application subnets.</li>
+            </ul>
+
+            <h4>Outbound Rules</h4>
+            <p>Define what traffic a server can send <strong>outward</strong>.</p>
+            <ul>
+              <li>Allow all outbound (common default).</li>
+              <li>Or restrict to specific services / IP ranges.</li>
+            </ul>
+
+            <h3>3. Typical Backend Setup</h3>
+            <p>Example for a secure web application:</p>
+            <ul>
+              <li>App server inbound: allow <strong>443</strong>, block all else.</li>
+              <li>Database inbound: allow <strong>3306</strong> only from app servers.</li>
+              <li>Admin SSH inbound: allow <strong>22</strong> only from office IP.</li>
+            </ul>
+            <p>
+              This prevents accidental exposure of sensitive services and reduces
+              the blast radius of any attack.
+            </p>
+
+            <h3>4. Why Backend Developers Must Understand This</h3>
+            <ul>
+              <li>Many “connection errors” are actually firewall issues.</li>
+              <li>
+                Security compliance (SOC2, HIPAA, etc.) requires strict network
+                rules.
+              </li>
+              <li>Microservices often rely on internal-only network paths.</li>
+              <li>
+                Debugging deployment problems often starts with checking inbound /
+                outbound rules.
+              </li>
+            </ul>
+            <p>
+              Knowing VPC &amp; firewall basics lets backend developers deploy
+              securely and diagnose issues quickly.
+            </p>
+          </div>
+        </div>
+
+
+
+
+
       </main>
 
       <!-- Footer -->
