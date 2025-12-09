@@ -1,8 +1,7 @@
 /*
-  Student Name: Yeona Choi
-  Chapter 10 Lab
-  File Name: script.js
-  Date: 11/29/2025
+Student Name: Yeona Choi
+File Name: script.js
+Final Project: Fall 2025
 */
 
 // =========================================
