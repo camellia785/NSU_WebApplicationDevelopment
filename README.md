@@ -25,6 +25,40 @@ The site presents networking topics in a **modal-based UI**, allowing users to f
 
 ---
 
+## How to Run
+
+### Run Locally
+
+No build tools required.
+
+1. Clone the repository
+
+   ```bash
+   git clone https://github.com/camellia785/NSU_WebApplicationDevelopment.git
+   ```
+
+2. Open `index.html` in your browser
+   (double-click the file or use **Live Server** in VS Code)
+
+<br>
+
+
+### Run with GitHub Pages (Live Demo)
+
+This project is also deployed using **GitHub Pages**, so you can view it live without any setup.
+
+🔗 **Live Site**  
+https://camellia785.github.io/NSU_WebApplicationDevelopment/
+
+### Notes
+- The site is built from the `/docs` folder on the `main` branch
+- No backend server or build process is required
+- Any changes pushed to `docs/` will automatically update the live site after deployment
+
+<br>
+
+---
+
 ## Why Networking for Backend?
 
 Backend systems always operate inside a network.
@@ -133,40 +167,6 @@ docs/
 <p align="center">
   <img src="https://github.com/user-attachments/assets/1c1b8e71-80c7-4fb9-9dce-5e7ced1cc943" width="520"/>
 </p>
-
-<br>
-
----
-
-## How to Run
-
-### Run Locally
-
-No build tools required.
-
-1. Clone the repository
-
-   ```bash
-   git clone https://github.com/camellia785/NSU_WebApplicationDevelopment.git
-   ```
-
-2. Open `index.html` in your browser
-   (double-click the file or use **Live Server** in VS Code)
-
-<br>
-
-
-### Run with GitHub Pages (Live Demo)
-
-This project is also deployed using **GitHub Pages**, so you can view it live without any setup.
-
-🔗 **Live Site**  
-https://camellia785.github.io/NSU_WebApplicationDevelopment/
-
-### Notes
-- The site is built from the `/docs` folder on the `main` branch
-- No backend server or build process is required
-- Any changes pushed to `docs/` will automatically update the live site after deployment
 
 <br>
 
