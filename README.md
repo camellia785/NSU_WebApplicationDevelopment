@@ -83,6 +83,7 @@ docs/
 ````
 
 <br>
+
 ---
 
 ## UI / Implementation Highlights
@@ -94,6 +95,7 @@ docs/
 * Vanilla JavaScript for interaction logic
 
 <br>
+
 ---
 
 ## Preview (Screenshots)
@@ -133,6 +135,7 @@ docs/
 </p>
 
 <br>
+
 ---
 
 ## How to Run
@@ -151,6 +154,7 @@ No build tools required.
    (double-click the file or use **Live Server** in VS Code)
 
 <br>
+
 
 ### Run with GitHub Pages (Live Demo)
 
