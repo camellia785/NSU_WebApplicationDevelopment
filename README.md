@@ -133,7 +133,7 @@ No build tools required.
 1. Clone the repository
 
    ```bash
-   git clone https://github.com/USERNAME/REPO_NAME.git
+   git clone https://github.com/camellia785/NSU_WebApplicationDevelopment.git
    ```
 
 2. Open `index.html` in your browser
