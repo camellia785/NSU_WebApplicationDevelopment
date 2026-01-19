@@ -7,6 +7,8 @@
 
 A personal educational website that explains **networking fundamentals** with a clear focus on **backend development**.
 
+<br>
+
 ---
 
 ## Project Overview
@@ -18,6 +20,8 @@ This project was built to:
 - Turn abstract protocols into structured, readable explanations
 
 The site presents networking topics in a **modal-based UI**, allowing users to focus on one concept at a time without losing context.
+
+<br>
 
 ---
 
@@ -33,6 +37,8 @@ Understanding networking helps backend developers:
 - Debug issues beyond application code (DNS, TLS, routing)
 
 This project connects networking theory directly to real backend use cases.
+
+<br>
 
 ---
 
@@ -55,6 +61,8 @@ The website is organized into the following sections:
 - **Contact**  
   Portfolio connection point (Email · GitHub · LinkedIn)
 
+<br>
+
 ---
 
 ## Repository Structure
@@ -74,6 +82,7 @@ docs/
 └── README.md
 ````
 
+<br>
 ---
 
 ## UI / Implementation Highlights
@@ -84,6 +93,7 @@ docs/
 * Consistent card-based UI across all sections
 * Vanilla JavaScript for interaction logic
 
+<br>
 ---
 
 ## Preview (Screenshots)
@@ -122,6 +132,7 @@ docs/
   <img src="https://github.com/user-attachments/assets/1c1b8e71-80c7-4fb9-9dce-5e7ced1cc943" width="520"/>
 </p>
 
+<br>
 ---
 
 ## How to Run
@@ -138,6 +149,22 @@ No build tools required.
 
 2. Open `index.html` in your browser
    (double-click the file or use **Live Server** in VS Code)
+
+<br>
+
+### Run with GitHub Pages (Live Demo)
+
+This project is also deployed using **GitHub Pages**, so you can view it live without any setup.
+
+🔗 **Live Site**  
+https://camellia785.github.io/NSU_WebApplicationDevelopment/
+
+### Notes
+- The site is built from the `/docs` folder on the `main` branch
+- No backend server or build process is required
+- Any changes pushed to `docs/` will automatically update the live site after deployment
+
+<br>
 
 ---
 
