@@ -60,7 +60,7 @@ The website is organized into the following sections:
 ## Repository Structure
 
 ```text
-finalWeb/
+docs/
 ├── css/
 │   └── styles.css        # Global styles
 ├── scripts/
